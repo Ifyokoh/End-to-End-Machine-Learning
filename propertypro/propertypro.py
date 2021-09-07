@@ -38,7 +38,6 @@ class Propertypro:
         data['bedroom'] = data['bedroom'].str.strip('beds')
         data['bathroom'] = data['bathroom'].str.strip('baths')
         data['toilet'] = data['toilet'].str.strip('Toilets')
-        # data['price'] = data['price'].str.replace(',', '')
         data['price'] = data['price'].str.replace(r'[^0-9]+','')
         data['furnishing'] = data['furnishing'].str.split('\n')
         data['newly_built'] = data['furnishing'].apply(lambda x: ''.join(['1' if "Newly Built" in x else '0']))
@@ -81,27 +80,4 @@ class Propertypro:
         pd.set_option("display.max_rows", None, "display.max_columns", None)
         df = self.process_data(df)
         return df
-
-    # def clean_dataframe(self) -> pd.DataFrame:
-    #     """
-    #     Function which combines all functions required for cleaning scraped data.
-        
-    #     :param : None
-    #     :return: pandas dataFrame.
-    #     """
-
-    #     data = self.process_data(self.collect_information())
-    #     if self.export_to_csv:
-    #         self.export_to_csv(data)
-    #     return data
-
-    # def export_to_csv(self, data: pd.DataFrame) -> None:
-    #     """
-    #     Exports a dataframe to a .csv file in working dir.
-    #     :param data: pandas dataframe
-    #     :return: None
-    #     """
-    #     now = datetime.now()
-    #     timestamp = now.strftime("%Y-%m-%d_%H-%M-%S")
-    #     return data.to_csv(f"{self.category}_{timestamp}.csv", index=False)
 
