@@ -26,6 +26,11 @@ class Propertypro:
 
 
     def process_data(self, dataframe: pd.DataFrame) -> pd.DataFrame:
+        """
+        cleans data from the provided Dataframe.
+        :param data: Scraped data .
+        :return: pandas dataframe
+        """
         data = dataframe
         data = data.dropna()
         data['rooms'] = data['rooms'].str.split('\n')
@@ -44,6 +49,11 @@ class Propertypro:
 
 
     def scrape_data(self, no_samples, keywords):
+        """
+        Scrapes data from provided urls
+        :param : no_samples, keywords
+        :return: pandas dataFrame.
+        """
 
         data = {"title": [], "location": [], "furnishing": [], "rooms": [], "price": []}
         for keyword in keywords:
@@ -61,14 +71,37 @@ class Propertypro:
                     data["furnishing"].append(furnishing.text)
                 for rooms in soup.find_all('div', {'class': "fur-areea"}):
                     data["rooms"].append(rooms.text)
-                for price in soup.find_all('span', { 'itemprop': 'price' }):
+                for price in soup.find_all('h3', { 'class': 'listings-price' }):
                     data["price"].append(price.text)
             page_url.clear()
 
-        df = pd.DataFrame(data)
+        # df = pd.DataFrame(data)
+        df = pd.DataFrame.from_dict(data, orient='index')
+        df = df.transpose()
         pd.set_option("display.max_rows", None, "display.max_columns", None)
         df = self.process_data(df)
         return df
 
-# run = propertypro()
-# run.scrape_data(22, ['enugu', 'lagos'])
+    # def clean_dataframe(self) -> pd.DataFrame:
+    #     """
+    #     Function which combines all functions required for cleaning scraped data.
+        
+    #     :param : None
+    #     :return: pandas dataFrame.
+    #     """
+
+    #     data = self.process_data(self.collect_information())
+    #     if self.export_to_csv:
+    #         self.export_to_csv(data)
+    #     return data
+
+    # def export_to_csv(self, data: pd.DataFrame) -> None:
+    #     """
+    #     Exports a dataframe to a .csv file in working dir.
+    #     :param data: pandas dataframe
+    #     :return: None
+    #     """
+    #     now = datetime.now()
+    #     timestamp = now.strftime("%Y-%m-%d_%H-%M-%S")
+    #     return data.to_csv(f"{self.category}_{timestamp}.csv", index=False)
+

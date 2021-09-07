@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Prediction</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+<div class="img"></div>
+<h1 class="title">House Price Prediction</h1>
+<form class='form', action = "/predict" , method="POST">
+			<h2 class="bed">Bedroom</h2>
+			<input class="area"  type="number" id="bed" class="floatLabel" name="bed" value="1">
+			<h2 class="bath">Bathroom</h2>
+			<input class="area"  type="number" id="bath" class="floatLabel" name="bath" value="1">
+			<h2 class="toilet">Toilet</h2>
+			<input class="area"  type="number" id="toilet" class="floatLabel" name="toilet" value="1">
+			<h2 class="loc">Newly Built</h2>
+			<div>
+		  <select class="location" name="new" id="uiLocations">
+			<option value="" disabled="disabled" selected="selected">Select option</option>
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+		  </select>
+		</div><br>
+		<h2 class="loc">Furnished</h2>
+		<div>
+	  <select class="location" name="furnished" id="uiLocations">
+		<option value="" disabled="disabled" selected="selected">Select option</option>
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	  </select>
+	</div><br>
+	<h2 class="loc">Serviced</h2>
+		<div>
+	  <select class="location" name="serviced" id="uiLocations">
+		<option value="" disabled="disabled" selected="selected">Select option</option>
+		<option value="1">Yes</option>
+		<option value="0">No</option>
+	  </select>
+	</div><br>
+		<h2 class="loc">Location</h2>
+		<div>
+	  <select class="location" name="location" id="uiLocations">
+		<option value="" disabled="disabled" selected="selected">Select Location</option>
+			<option value="0">lagos</option>
+			<option value="1">enugu</option>
+			<option value="2">abuja</option>
+	  </select>
+	</div>
+	<button class="submit" type="submit">PREDICT</button>
+	<div id="uiEstimatedPrice" class="result">	<h2>{{n}}</h2> </div> 
+
+	</form>
+</body>
+</html>
