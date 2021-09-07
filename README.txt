@@ -7,7 +7,7 @@ Installation
 
 to use the package in your notebook:
 
-``!pip install propertypro-scrapper==1.1.0``
+``!pip install propertypro-scrapper``
 
 ``from propertypro.propertypro import Propertypro``
 
