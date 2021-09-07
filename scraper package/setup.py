@@ -12,7 +12,7 @@ setup(
   version='1.1',
   description='A scraper that helps scrape a housing website propertypro',
   long_description=open('README.txt').read(),
-  url='https://github.com/Ifyokoh/',  
+  url='https://github.com/Ifyokoh/End-to-End-Machine-Learning',  
   author='Ifeoma Okoh',
   author_email='odibest1893@gmail.com',
   license='MIT', 
