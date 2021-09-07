@@ -18,7 +18,8 @@ scraper.scrape_data(100, ["enugu"])
 -  Go to https://price-house.herokuapp.com/ and make your prediction
 - To use Postman for the prediction, enter the url https://price-house.herokuapp.com/results, Using the ```POST``` request, enter a sample input array below
 
-```{
+```
+{
     "bed": 2,
       "bath": 1,
       "toilet": 2,
