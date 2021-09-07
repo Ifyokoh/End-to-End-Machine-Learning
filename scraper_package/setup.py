@@ -9,7 +9,7 @@ classifiers = [
  
 setup(
   name='propertypro scrapper',
-  version='1.1',
+  version='1.1.0',
   description='A scraper that helps scrape a housing website propertypro',
   long_description=open('README.txt').read(),
   url='https://github.com/Ifyokoh/End-to-End-Machine-Learning',  

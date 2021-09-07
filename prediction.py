@@ -7,7 +7,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import GradientBoostingRegressor
 import pickle
 
-from propertypro.propertypro import Propertypro
+from scraper_package.propertypro.propertypro import Propertypro
 
 scraper = Propertypro()
 data = scraper.scrape_data(2000, ['lagos','enugu', 'abuja'])

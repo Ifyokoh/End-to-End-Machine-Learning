@@ -5,7 +5,7 @@ The aim of the project is to build an end to end machine learning project. Creat
 
 ## To use the package in your notebook:
 ```python
-!pip install propertypro-scrapper==1.1
+!pip install propertypro-scrapper==1.1.0
 
 from propertypro.propertypro import Propertypro
 
