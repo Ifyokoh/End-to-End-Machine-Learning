@@ -1,5 +1,6 @@
 pytest
 twine
+psycopg2
 certifi==2021.5.30
 charset-normalizer==2.0.4
 click==8.0.1

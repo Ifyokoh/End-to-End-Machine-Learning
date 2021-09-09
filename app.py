@@ -13,15 +13,6 @@ with open("model.pkl", "rb") as f:
 
 app = Flask(__name__)
 
-filename = 'model.pkl'
-model = pickle.load(open(filename, 'rb'))
-
-class NumpyArrayEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, np.ndarray):
-            return obj.tolist()
-        return json.JSONEncoder.default(self, obj)
-
 @app.route("/")
 def template():
     return render_template('index.html')
