@@ -7,20 +7,14 @@ class Database():
         Connection to work with the remote database on Heroku platform.
         :return: connection
         """
+       
         self.__connection = psycopg2.connect(
-                database="ddt86fqfteau87",
-                user="jbnnnlzzyzkhci",
-                password="70cdffbd005c5cd0ac4cec6f4f7525aa28b3b30338d3dbde2389ee3be4aadc9a",
-                host="ec2-52-19-164-214.eu-west-1.compute.amazonaws.com",
-                port="5432"
+                database="db",
+                user="user",
+                password="password",
+                host="host",
+                port="port"
         )
-        # self.__connection = psycopg2.connect(
-        #         database="db",
-        #         user="user",
-        #         password="password",
-        #         host="host",
-        #         port="port"
-        # )
 
     def create_table(self) -> None:
         """
@@ -49,7 +43,7 @@ class Database():
             self.__connection.commit()
     
 
-    def get_recent_records(self, number_of_records) -> list:
+    def get_recent_records(self):
         """
         Returns the desired number of most recent results consisting in input-output pairs
         :return:
@@ -57,13 +51,10 @@ class Database():
         with self.__connection.cursor() as cur:
             cur.execute('''
             SELECT input_values, predicted_values
-            FROM Predictions
+            FROM predictions
             ORDER BY date DESC
-            LIMIT %(number)s
-            ''',
-                        {
-                            "number": number_of_records
-                        })
+            LIMIT 10
+            ''')
             return cur.fetchall()
 
 

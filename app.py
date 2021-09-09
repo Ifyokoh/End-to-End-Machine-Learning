@@ -31,8 +31,7 @@ def predict():
 
         data = np.array([[bed, bath, toilet, new, furnished, serviced, location]])
         # lis = data.tolist()
-        # # output = json.dumps(lis)
-        # output = jsonify(lis)
+        # output = json.dumps(lis)
         prediction = model.predict(data)
     # database.insert_record(output, prediction)
     return render_template("index.html", n = prediction )
