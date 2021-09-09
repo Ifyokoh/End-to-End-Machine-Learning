@@ -39,11 +39,11 @@ def predict():
         location = int(request.form['location'])
 
         data = np.array([[bed, bath, toilet, new, furnished, serviced, location]])
-        lis = data.tolist()
-        # output = json.dumps(lis)
-        output = jsonify(lis)
+        # lis = data.tolist()
+        # # output = json.dumps(lis)
+        # output = jsonify(lis)
         prediction = model.predict(data)
-    database.insert_record(output, prediction)
+    # database.insert_record(output, prediction)
     return render_template("index.html", n = prediction )
 
 @app.route('/results',methods=['POST'])
